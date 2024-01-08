@@ -53,6 +53,8 @@ def bin_dir_name_to_lib_target(dir_name):
         return "kaldi-hmm"
     elif dir_name == "fstbin":
         return "kaldi-fstext"
+    elif dir_name == "lowqbin":
+        return "kaldi-fstext"
     else:
         return "kaldi-" + dir_name[:-3]
 
@@ -142,6 +144,10 @@ def get_exe_additional_depends(t):
         # solve kwsbin
         "generate-proxy-keywords": ["fstext"],
         "transcripts-to-fsts": ["fstext"],
+
+        # solve lowqbin
+        "k3": ["hmm","online2"],
+        "m3": ["hmm","online2"],
     }
     libs = []
     for pattern in additional.keys():

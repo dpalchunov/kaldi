@@ -38,7 +38,7 @@ endif()
 execute_process(COMMAND ${PYTHON_EXECUTABLE}
     "${CMAKE_CURRENT_SOURCE_DIR}/cmake/gen_cmake_skeleton.py"
     "${CMAKE_CURRENT_SOURCE_DIR}/src"
-    "--quiet"
+#    "--quiet"
     ${IS_LIB_SHARE}
 )
 unset(IS_LIB_SHARE)
@@ -283,6 +283,7 @@ add_subdirectory(src/nnet3bin)
 add_subdirectory(src/rnnlmbin)
 add_subdirectory(src/chainbin)
 add_subdirectory(src/ivectorbin)
+add_subdirectory(src/lowqbin)
 if(NOT MSVC)
     add_subdirectory(src/onlinebin)
     add_subdirectory(src/online2bin)
